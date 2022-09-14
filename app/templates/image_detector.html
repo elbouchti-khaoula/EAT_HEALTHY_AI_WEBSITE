@@ -1,0 +1,204 @@
+{% extends "template.html" %}
+{% block content %}
+
+
+<head>
+	<title>Be Healthy</title>
+	<link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/styles/main_styles.css">
+</head>
+<div class="jumbotron" style="background-color:#0A4100;">
+    <div class="row">
+
+    </div>
+</div>
+<div class="row">
+        <div class="col-12"><strong>
+            <h3 class="navbar navbar-expand-lg navbar-dark " style="color: #286833 ;">Try the calorie estimator on images!! </h3></strong>
+        </div>
+    </div>
+<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+								<div class="logo"><a href="index.html"> <h3> Eat Healthy</h3></a></div>
+								<nav class="main_nav">
+									<ul class="d-flex flex-row align-items-start justify-content-start">
+										<li><a href="/"><p style="background-color:#;">Home</a></li>
+										<li><a href="/nutrition"><p style="background-color: #;">Calorie/day</a></li>
+										<li><a href="/live_detector"><p style="background-color: #;">AI Live Dish Analysis </a></li>
+										<li><a href="/image-detector"><p style="background-color: #;">AI Image Dish Analysis </a></li>
+										<li><a href="/cal_vol"><p style="background-color: #;">AI vol/calorie estimation</a></li>
+                                        <li><a href="/poid"><p style="background-color: #;">Ideal weight</a></li>
+
+										</ul>
+								</nav>
+
+								<!-- Hamburger -->
+
+								<div class="hamburger ml-auto">
+									<i class="fa fa-bars" aria-hidden="true"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+<div class="container">
+    <div class="container-fluid">
+        <div id="frame_container" class="row">
+            <div class="col-12">
+                <img src="/static/images/33.PNG" id="image-preview" style="max-width:600px"
+                     class="img-thumbnail img-fluid mx-auto d-block">
+            </div>
+        </div>
+        <div class="row mt-3 mb-5">
+            <div class="col-12 d-flex justify-content-center">
+
+                <form enctype="multipart/form-data" id="image-form" method="POST">
+                    <div class="row" id="form-row">
+                        <div class="col-12">
+                            {{ form.csrf_token() }}
+
+                            {{ form.image.label(class="custom-file-label") }}
+                            {% if form.image.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.image.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            <div class="custom-file">
+                                {{ form.image(class="custom-file-input",
+                                id="new-image", onchange="previewImage(event)") }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-12 d-flex justify-content-center">
+                            {{ form.submit(class="btn btn-primary", id ="submit", disabled=True)}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+
+
+        <div class="row mb-5">
+            <p>I hope you all good health</p>
+            <p class="d-flex mx-auto lead text-danger"><strong>stay healthy!</strong>.</p>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block custom_js %}
+<script>
+var previewImage = function(event) {
+    var element_id = "image-preview";
+    var preview = document.getElementById(element_id);
+    preview.src = URL.createObjectURL(event.target.files[0]);
+    preview.style.display = "block";
+    $("#submit").prop("disabled",false);
+};
+
+$(function() {
+        $("#submit").each(function(index){
+            $(this).on('click', function(e) {
+
+                var url = "{{ url_for('main.image_processing') }}";
+
+                // Form data
+                var formData = new FormData();
+
+                // Add form data
+            $('#image-form').serializeArray().forEach(
+                function(item, index) {
+                    formData.append(item.name, item.value);
+                }
+            );
+                // Add the files
+                var image = $('#new-image')[0].files[0];
+                formData.append('image', image);
+
+                // AJAX query to the endpoint for deletion
+                $.ajax({
+                    type: "POST", // POST HTTP
+                    url:  url +'',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+
+                        $("#image-preview").attr("src", response);
+                        $("#submit").replaceWith('<button class="btn btn-success"><i class="fa fa-check-circle" onclick="location.reload()" aria-hidden="true"></i> Done!</button>');
+                        $("#form-row").remove();
+                    },
+                    error: function(response){
+                        location.reload();
+                        // Redirect to this page
+                    }
+                });
+
+                return false;
+            })
+        })
+    })
+</script>
+{% endblock %}
+
+
+						<div class="home_slider_content_container">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="home_slider_content">
+											<div class="home_title">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+<div class="footer">
+        <div class="py-4 bg-dark text-white-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>You can follow me here:</p>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="https://www.linkedin.com/in/galileo-parise-34311198/" class="footer-link">
+                                    <i class="fa fa-linkedin-square my-auto mx-2" aria-hidden="true"></i> Linkedin
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="footer-link">
+                                    <i class="fa fa-medium mx-2 my-auto" aria-hidden="true"></i>Medium
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="mailto:parise.galileo@gmail.com?subject=Mask%20detector" class="footer-link">
+                                    <i class="fa fa-envelope my-auto mx-2" aria-hidden="true"></i> Mail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

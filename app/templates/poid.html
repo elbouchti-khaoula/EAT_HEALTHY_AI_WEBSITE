@@ -1,0 +1,186 @@
+<html lang="en">
+
+<head>
+	<title>Be Healthy</title>
+	<link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/styles/main_styles.css">
+</head>
+
+
+<body style="background-color:#FFFFF0;">
+<div class="jumbotron" style="background-color:#0A4100;">
+    <div class="row">
+
+    </div>
+</div>
+<div class="row">
+        <div class="col-12"><strong>
+            <h3 class="navbar navbar-expand-lg navbar-dark " style="color: #286833 ;">Calculate the number of calories you should consume every day! </h3></strong>
+        </div>
+    </div>
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+								<div class="logo"><a href="index.html"> <h3> Eat Healthy</h3></a></div>
+								<nav class="main_nav">
+									<ul class="d-flex flex-row align-items-start justify-content-start">
+										<li><a href="/"><p style="background-color:#;">Home</a></li>
+										<li><a href="/nutrition"><p style="background-color: #;">Calorie/day</a></li>
+										<li><a href="/live_detector"><p style="background-color: #;">AI Live Dish Analysis </a></li>
+										<li><a href="/image-detector"><p style="background-color: #;">AI Image Dish Analysis </a></li>
+										<li><a href="/cal_vol"><p style="background-color: #;">AI vol/calorie estimation</a></li>
+                                        <li><a href="/poid"><p style="background-color: #;">Ideal weight</a></li>
+
+										</ul>
+								</nav>
+
+								<!-- Hamburger -->
+
+								<div class="hamburger ml-auto">
+									<i class="fa fa-bars" aria-hidden="true"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu">
+			<div class="menu_header d-flex flex-row align-items-center justify-content-start">
+				<div class="menu_logo"><a href="index.html">Eat Healthy</a></div>
+				<div class="menu_close_container ml-auto">
+					<div class="menu_close">
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+			<div class="menu_content">
+				<ul>
+					<li class="active"><a class="nav-link" href="/">Home</a></li>
+					<li><a href="/live_detector">Live Calorie Estimator</a></li>
+					<li><a href="/image-mask-detector">Image Calorie Estimator</a></li>
+					<li><a href="/poid">Poid</a></li>
+					<li><a href="/nutrition">Nutrition</a></li>
+					<li><a href="/about">About</a></li>
+					<div class="d-flex align-items-center">
+						<button type="button" class="btn btn-link px-3 me-2"  style="color:#FFFFFF;">Sign up</button>
+						<button type="button" class="btn btn-link px-3 me-2"  style="color: #FFFFFF;">Login</button>
+
+					</div>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Home -->
+
+		<div class="home">
+
+			<!-- Home Slider -->
+			<div class="home_slider_container">
+				<div class="owl-carousel owl-theme home_slider">
+
+					<!-- Slide -->
+					<div class="owl-item">
+						<body bgcolor="#ffffff" text="#000000" >
+						<div align="center">
+    <br /><br /><br />
+
+   <div class='resp_code'>
+    <table id ='tab' align='center' cellspacing='0' cellpadding='0' style="width:100%;" bgcolor="#A3D5A3">
+   <tr >
+    <td width="300" align="center" >
+   <strong style="color: #286833 ;" >Entrez votre taille en cm:</strong><br />
+ <hr color="#000000" width="50%">
+    <strong style="color: #286833 ;">Entrez votre poids: </strong><br />
+ </td>
+<td width="250" align="center">
+<form action="" method="post" name="ideal" id="ideal">
+<br /><br /><br /><br /><br /><br /><br />
+&nbsp;&nbsp;&nbsp;<input type="text"  value="Entrez votre taille (en cm) ici." name="taille" OnFocus="this.value=''" size="30"><br /><br />
+&nbsp;&nbsp;&nbsp;<input type="text" value="Entrez votre poids ici." name="poids" OnFocus="this.value=''" size="30"><br /><br />
+&nbsp;&nbsp;&nbsp;<input class='blue_button' type="button" value="Calculer" onclick="cc()" >
+&nbsp;&nbsp;&nbsp;<input class='blue_button' type="reset" value="Remettre à zero" name="reset"><br /><br /><br />
+</form>
+</td>
+</td>
+</tr>
+</table>
+</div></div>
+<style>
+.blue_button{background: none repeat scroll 0 0 #1E5E29;border-bottom: 3px solid #3277BC;text-shadow: 1px 1px 0 #214D73;border: medium none;border-radius: 0.3em;color: #FFFFFF;cursor: pointer;font-weight: bold;margin: 10px 0;padding: 7px 14px;}
+.frms input[type="text"], [type="password"], [type="file"], textarea, select {background: none repeat scroll 0 0 #fff;border: 1px solid #ddd;border-radius: 0.35em;height: 35px;margin-bottom: 15px;margin-top: 5px;padding: 0 0.5%;width: 99%;
+}
+.resp_code {background: none repeat scroll 0 0 #f8f8f8;border: 1px solid #ddd;border-radius: 0.25em;color: #333;font: 1em/1.3em Tahoma,Geneva,sans-serif;width:60%;
+}
+@media only screen and (max-width:650px) {.resp_code {margin: 5px 1px 10px !important;width:auto !important;}
+}
+</style>
+</body>
+
+						<div class="home_slider_content_container">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="home_slider_content">
+											<div class="home_title">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+						<script src="/static/js/jquery-3.2.1.min.js"></script>
+	                    <script src="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+						<script src="/static/js/custom.js"></script>
+</body>
+<div class="footer">
+        <div class="py-4 bg-dark text-white-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>You can follow me here:</p>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="https://www.linkedin.com/in/galileo-parise-34311198/" class="footer-link">
+                                    <i class="fa fa-linkedin-square my-auto mx-2" aria-hidden="true"></i> Linkedin
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="footer-link">
+                                    <i class="fa fa-medium mx-2 my-auto" aria-hidden="true"></i>Medium
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="mailto:parise.galileo@gmail.com?subject=Mask%20detector" class="footer-link">
+                                    <i class="fa fa-envelope my-auto mx-2" aria-hidden="true"></i> Mail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>

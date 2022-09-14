@@ -1,0 +1,471 @@
+<html lang="en">
+
+<head>
+	<title>Be Healthy</title>
+	<link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/styles/main_styles.css">
+</head>
+
+
+<body style="background-color:#FFFFF0;">
+<div class="jumbotron" style="background-color:#0A4100;">
+    <div class="row">
+
+    </div>
+</div>
+<div class="row">
+        <div class="col-12">
+            <h3   class="navbar navbar-expand-lg navbar-dark " style="color: #286833 ;"><strong>Calculate your perfect weight to determine your gool!</strong></h3>
+        </div>
+    </div>
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+								<div class="logo"><a href="index.html"> <h3> Eat Healthy</h3></a></div>
+								<nav class="main_nav">
+									<ul class="d-flex flex-row align-items-start justify-content-start">
+										<li><a href="/"><p style="background-color:#;">Home</a></li>
+										<li><a href="/nutrition"><p style="background-color: #;">Calorie/day</a></li>
+										<li><a href="/live_detector"><p style="background-color: #;">AI Live Dish Analysis </a></li>
+										<li><a href="/image-detector"><p style="background-color: #;">AI Image Dish Analysis </a></li>
+										<li><a href="/cal_vol"><p style="background-color: #;">AI vol/calorie estimation</a></li>
+                                        <li><a href="/poid"><p style="background-color: #;">Ideal weight</a></li>
+
+										</ul>
+								</nav>
+								<!-- Hamburger -->
+
+								<div class="hamburger ml-auto">
+									<i class="fa fa-bars" aria-hidden="true"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu">
+			<div class="menu_header d-flex flex-row align-items-center justify-content-start">
+				<div class="menu_logo"><a href="index.html">Eat Healthy</a></div>
+				<div class="menu_close_container ml-auto">
+					<div class="menu_close">
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+			<div class="menu_content">
+				<ul>
+					<li class="active"><a class="nav-link" href="/">Home</a></li>
+					<li><a href="/live_detector">Live Calorie Estimator</a></li>
+					<li><a href="/image-mask-detector">Image Calorie Estimator</a></li>
+					<li><a href="/poid">Poid</a></li>
+					<li><a href="/nutrition">Nutrition</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Home -->
+
+		<div class="home">
+
+			<!-- Home Slider -->
+			<div class="home_slider_container">
+				<div class="owl-carousel owl-theme home_slider">
+
+					<!-- Slide -->
+					<div class="owl-item">
+						<body bgcolor="#ffffff" text="#000000" ></body>
+
+<div class="container">
+    <div class="container-fluid">
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#image-detector').attr('class', 'nav-item');
+    $('#poid').attr('class', 'nav-item');
+    $('#nutrition').attr('class', 'nav-item active');
+    $('#about').attr('class', 'nav-item');
+    $('#live').attr('class', 'nav-item');
+})
+var cneed;
+var fneed;
+var crneed;
+var pneed;
+var aneed;
+var fd;
+function cc()
+{
+var age=parseInt(document.getElementById("age").value);
+var wtype=document.getElementById("wtype").value;
+var foot=parseInt(document.getElementById("foot").value);
+var inch=parseInt(document.getElementById("inch").value);
+var cm =document.getElementById("cen").value;
+var weight=document.getElementById("weight").value;
+if (age!='' && cm!='' && weight!='') {
+if (wtype=="pounds")
+{weight=parseInt(weight);
+weight=Math.round(weight/2.2046);
+}
+var loa=document.getElementById("loa").value;
+if(document.getElementById("gen").checked)
+{
+fd=(10*weight)+(6.25*cm)-(5*age)+5;
+}
+else
+{
+fd=(10*weight)+(6.25*cm)-(5*age)-161;
+}
+switch(loa)
+{
+case "1":
+cneed=fd*1.2;
+break;
+case "2":
+cneed=fd*1.375
+break;
+case "3":
+cneed=fd*1.53;
+break;
+case "4":
+cneed=fd*1.725;
+break;
+case "5":
+cneed=fd*1.9;
+break;
+}
+cneed=Math.floor(cneed);
+//cneed1=Math.floor(cneed*0.0353);
+fneed=Math.floor((cneed*0.25)/9);
+if (wtype=="pounds")
+{
+fneed=Math.floor(fneed*0.0353);
+//fneed=fneed*0.0022 ;
+}
+pneed=Math.floor((cneed*0.25)/4);
+if (wtype=="pounds")
+{
+pneed=Math.floor(pneed*0.0353);
+}
+crneed=Math.floor((cneed*0.25)/4);
+if (wtype=="pounds")
+{
+crneed=Math.floor(crneed*0.0353);
+}
+aneed=Math.floor((cneed*0.25)/7);
+if (wtype=="pounds")
+{
+aneed=Math.floor(aneed*0.0353);
+}
+document.getElementById("rc").value=" "+cneed;
+document.getElementById("rf").value=" "+fneed;
+document.getElementById("rp").value=" "+pneed;
+document.getElementById("rh").value=" "+crneed;
+document.getElementById("ra").value=" "+aneed;
+document.getElementById("l1").innerHTML="grams";
+document.getElementById("l2").innerHTML="grams";
+document.getElementById("l3").innerHTML="grams";
+document.getElementById("l4").innerHTML="grams";
+var caltype=document.getElementById("caltype").value;
+if (caltype=='g') {
+document.getElementById("l1").innerHTML="grams";
+document.getElementById("l2").innerHTML="grams";
+document.getElementById("l3").innerHTML="grams";
+document.getElementById("l4").innerHTML="grams";
+}
+if (wtype=="pounds")
+{
+fat1 = fneed * 0.0022 ;
+pro1 = pneed * 0.0022 ;
+car1 = crneed * 0.0022 ;
+alh1 = aneed * 0.0022 ;
+fat1=fat1.toFixed(3);
+pro1 = pro1.toFixed(3);
+car1 = car1.toFixed(3);
+alh1 = alh1.toFixed(3);
+document.getElementById("rf").value=" "+fat1;
+document.getElementById("rp").value=" "+pro1;
+document.getElementById("rh").value=" "+car1;
+document.getElementById("ra").value=" "+alh1;
+document.getElementById("l1").innerHTML="lbs";
+document.getElementById("l2").innerHTML="lbs";
+document.getElementById("l3").innerHTML="lbs";
+document.getElementById("l4").innerHTML="lbs";
+}
+if (caltype=='pounds') {
+fat1 = fneed * 0.0022 ;
+pro1 = pneed * 0.0022 ;
+car1 = crneed * 0.0022 ;
+alh1 = aneed * 0.0022 ;
+fat1=fat1.toFixed(3);
+pro1 = pro1.toFixed(3);
+car1 = car1.toFixed(3);
+alh1 = alh1.toFixed(3);
+document.getElementById("rf").value=" "+fat1;
+document.getElementById("rp").value=" "+pro1;
+document.getElementById("rh").value=" "+car1;
+document.getElementById("ra").value=" "+alh1;
+document.getElementById("l1").innerHTML="lbs";
+document.getElementById("l2").innerHTML="lbs";
+document.getElementById("l3").innerHTML="lbs";
+document.getElementById("l4").innerHTML="lbs";
+}
+if (caltype=='kg') {
+fat2 = fneed / 1000;
+pro2 = pneed / 1000;
+car2 = crneed / 1000;
+alh2 = aneed / 1000;
+fat2=fat2.toFixed(3);
+pro2 = pro2.toFixed(3);
+car2 = car2.toFixed(3);
+alh2 = alh2.toFixed(3);
+document.getElementById("rf").value=" "+fat2;
+document.getElementById("rp").value=" "+pro2;
+document.getElementById("rh").value=" "+car2;
+document.getElementById("ra").value=" "+alh2;
+document.getElementById("l1").innerHTML="kilogram";
+document.getElementById("l2").innerHTML="kilogram";
+document.getElementById("l3").innerHTML="kilogram";
+document.getElementById("l4").innerHTML="kilogram";
+}
+}
+else{
+alert("Please fill your details properly!");}
+}
+function con(num)
+{
+var hc=parseInt(num.value);
+var hi=hc/2.54;
+var hf=Math.floor(hi/12);
+var ri=Math.round(hi%12);
+if(hc>40 && hc<=210)
+{
+document.getElementById("foot").value=hf;
+}
+document.getElementById("inch").value=ri;
+}
+function hcon()
+{
+var hf=parseInt(document.getElementById("foot").value);
+var hi=parseInt(document.getElementById("inch").value);
+var hc;
+hc=Math.round((hf*30.48)+(hi*2.54));
+document.getElementById("cen").value=hc;
+}
+function cknum(event,num)
+{var kc;
+if(window.event)
+{
+kc=event.keyCode;
+}
+else
+{
+kc=event.which;
+}
+var a=num.value;
+if(kc==48)
+{
+if(a=="")
+{
+return false;
+}
+else
+{
+return true;
+}
+}if (kc!=8 && kc!=0)
+{
+if (kc<49||kc>57)
+{
+return false;
+}
+}
+}
+function isNumberKey(id)
+{var no=eval('"'+id+'"');var number= document.getElementById(no).value; if(!number.match(/^[0-9\.]+$/) && number !=""){number = number.substring(0,number.length-1);document.getElementById(id).value = number;}
+}
+function convert() {
+var age=parseInt(document.getElementById("age").value);
+var cm =document.getElementById("cen").value;
+var weight=document.getElementById("weight").value;
+if (age!='' && cm!='' && weight!='') {
+var caltype=document.getElementById("caltype").value;
+var fat = document.getElementById("rf").value;
+var pro = document.getElementById("rp").value;
+var car = document.getElementById("rh").value;
+var alh = document.getElementById("ra").value;
+if (caltype=='g') {
+document.getElementById("rc").value=" "+cneed;
+document.getElementById("rf").value=" "+fneed;
+document.getElementById("rp").value=" "+pneed;
+document.getElementById("rh").value=" "+crneed;
+document.getElementById("ra").value=" "+aneed;
+document.getElementById("l1").innerHTML="grams";
+document.getElementById("l2").innerHTML="grams";
+document.getElementById("l3").innerHTML="grams";
+document.getElementById("l4").innerHTML="grams";
+}
+if (caltype=='pounds') {
+fat1 = fneed * 0.0022 ;
+pro1 = pneed * 0.0022 ;
+car1 = crneed * 0.0022 ;
+alh1 = aneed * 0.0022 ;
+fat1=fat1.toFixed(3);
+pro1 = pro1.toFixed(3);
+car1 = car1.toFixed(3);
+alh1 = alh1.toFixed(3);
+document.getElementById("rf").value=" "+fat1;
+document.getElementById("rp").value=" "+pro1;
+document.getElementById("rh").value=" "+car1;
+document.getElementById("ra").value=" "+alh1;
+document.getElementById("l1").innerHTML="lbs";
+document.getElementById("l2").innerHTML="lbs";
+document.getElementById("l3").innerHTML="lbs";
+document.getElementById("l4").innerHTML="lbs";
+}
+if (caltype=='kg') {
+fat2 = fneed / 1000;
+pro2 = pneed / 1000;
+car2 = crneed / 1000;
+alh2 = aneed / 1000;
+fat2=fat2.toFixed(3);
+pro2 = pro2.toFixed(3);
+car2 = car2.toFixed(3);
+alh2 = alh2.toFixed(3);
+document.getElementById("rf").value=" "+fat2;
+document.getElementById("rp").value=" "+pro2;
+document.getElementById("rh").value=" "+car2;
+document.getElementById("ra").value=" "+alh2;
+document.getElementById("l1").innerHTML="kilogram";
+document.getElementById("l2").innerHTML="kilogram";
+document.getElementById("l3").innerHTML="kilogram";
+document.getElementById("l4").innerHTML="kilogram";
+}
+}
+else{
+alert("Please fill your details properly!");
+}
+}
+function chk(){
+var sds = document.getElementById('dum');
+if(sds == null){alert("You are using a free package.\n You are not allowed to remove the tag.\n");
+document.getElementById("tab").style.visibility="hidden";
+}
+var sdss = document.getElementById("dumdiv");
+if(sdss == null){alert("You are using a free package.\n You are not allowed to remove the tag.\n");}
+}
+window.onload=chk;
+</script>
+
+<div class='resp_code' align='center'>
+<table id ='tab' align='center' cellspacing='0' cellpadding='0' style="width:100%;" bgcolor="#A3D5A3">
+<tr><td align=center>
+    <br><b style="color: #000000; ">calculer tes besoins caloriques par jours..</b><br>
+    <br><form name="frm" action="" class='frms noborders'>
+    <table><tr><td style="color: #000000; font-size:13px;">Age:</td>
+        <td><input type="text" name="age" id="age" align="left" size="3" maxlength="2" onkeypress="return cknum(event,age)"></td>
+        <td><font color="#000000" size="2">ans</font></td></tr><tr><td style="color: #000000; font-size:13px;">Genre:</td>
+        <td> <input type="radio" name="gen" id="gen" checked><font color="#000000" size="0.7">Homme</font>
+            <input type="radio" name="gen" id="gen"><font color="#000000" size="0.7">Femme</font></td></tr>
+        <tr><td style="color: #000000; font-size:13px;">Hauteur(Cms): </td>
+            <td><input type="text" name="cen" id="cen" size="4" onkeyup="con(cen)"></td></tr>
+        <tr><td style="color: #000000; font-size:13px;">Poids:</td>
+            <td><input type="text" name="weight" id="weight" maxlength="3" size="3" onkeyup="isNumberKey(this.id)"></td>
+            <td><select name="wtype" id="wtype"><option value="kg">Kg</option><option value="pounds">Pounds</option></select></td></tr>
+        <tr><td style="color: #000000; font-size:13px;">activité</td><td><select style='width:100px;' name="loa" id="loa">
+            <option value="1">Sédentaire</option><option value="2">Actif léger</option><option value="3">Modérément actif</option>
+            <option value="4">Très actif</option><option value="5">Extra Actif</option></select></td></tr>
+        <!---->
+        <tr><td colspan='2' align="center"><input class='blue_button' type="button" value="Calculer les calories" onclick="cc()">
+            <span id="dumdiv" align="center" style=" font-size: 10px;color: #000000;"><a id="dum" style="padding-right:0px; text-decoration:none;color: green;text-align:center;" ></a></span></td></tr></table></form>
+<br><table align="center" border="0" class="frms noborders"><caption><b style="color: #000000 ;">Résultat calorique</b></caption>
+    <tr><td align="right" style="color: #000000; font-size:13px;">Calories nécessaires:</td>
+        <td><input type="text" id="rc" style="font-size:13px;" size="15" readonly></td>
+        <td><select name="caltype" id="caltype" onChange="convert()"><option value="g">Grams</option>
+            <option value="kg">Kilograms</option><option value="pounds">Pounds</option></select></td></tr></table>
+    <div style="color: #000000; font-size:13px;">Vous devez consommer quotidiennement les éléments suivants</div>
+    <table class="frms noborders"><tr><td style="color: #000000; font-size:13px;">Graisse/Fats:</td>
+        <td style="color: #000000; font-size:13px;"><input type="text" id="rf" style="font-size:13px;" size="10" readonly></td>
+        <td><font color="#000000" size="2" style='float:right'><label id="l1"></label> par jour</font></td></tr>
+        <tr><td style="color: #000000; font-size:13px;">Protéine/Protein:</td><td style="color: #000000; font-size:13px;"><input type="text" id="rp" style="font-size:13px;" size="10" readonly></td>
+            <td><font color="#000000" size="2" style='float:right'><label id="l2"></label> par jour</font></td></tr>
+        <tr><td style="color: #000000; font-size:13px;">Glucide/Carbohydrate:</td><td style="color: #000000; font-size:13px;"><input type="text" id="rh" style="font-size:13px;" size="10" readonly></td>
+            <td><font color="#000000" size="2" style='float:right'><label id="l3"></label> par jour</font></td></tr></table>
+</tr></td>
+</table>
+</div>
+<style>
+.blue_button{background: none repeat scroll 0 0 #1E5E29;border-bottom: 3px solid #3277BC;text-shadow: 1px 1px 0 #214D73;border: medium none;border-radius: 0.3em;color: #FFFFFF;cursor: pointer;font-weight: bold;margin: 10px 0;padding: 7px 14px;}
+.frms input[type="text"], [type="password"], [type="file"], textarea, select {background: none repeat scroll 0 0 #fff;border: 1px solid #ddd;border-radius: 0.35em;height: 35px;margin-bottom: 15px;margin-top: 5px;padding: 0 0.5%;width: 99%;
+}
+.resp_code {background: none repeat scroll 0 0 #f8f8f8;border: 1px solid #ddd;border-radius: 0.25em;color: #333;font: 1em/1.3em Tahoma,Geneva,sans-serif;margin: 5px 10px 10px 10%;overflow: auto;width:60%;
+}
+@media only screen and (max-width:650px) {.resp_code {margin: 5px 1px 10px !important;width:auto !important;}
+}
+</style>
+						<div class="home_slider_content_container">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="home_slider_content">
+											<div class="home_title">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div></div></div></div>
+						<script src="/static/js/jquery-3.2.1.min.js"></script>
+	                    <script src="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+						<script src="/static/js/custom.js"></script>
+</body>
+<div class="footer">
+        <div class="py-4 bg-dark text-white-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>You can follow me here:</p>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="https://www.linkedin.com/in/galileo-parise-34311198/" class="footer-link">
+                                    <i class="fa fa-linkedin-square my-auto mx-2" aria-hidden="true"></i> Linkedin
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="footer-link">
+                                    <i class="fa fa-medium mx-2 my-auto" aria-hidden="true"></i>Medium
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="mailto:parise.galileo@gmail.com?subject=Mask%20detector" class="footer-link">
+                                    <i class="fa fa-envelope my-auto mx-2" aria-hidden="true"></i> Mail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>

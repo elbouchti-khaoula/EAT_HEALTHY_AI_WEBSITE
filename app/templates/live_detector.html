@@ -1,0 +1,148 @@
+{% extends "template.html" %}
+{% block content %}
+
+<body style="background-color:#FFFFF0;">
+
+<head>
+	<title>Be Healthy</title>
+	<link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/styles/main_styles.css">
+</head>
+<div class="jumbotron" style="background-color:#0A4100;">
+    <div class="row">
+
+    </div>
+</div>
+<div class="row">
+        <div class="col-12"><strong>
+            <h3 class="navbar navbar-expand-lg navbar-dark " style="color: #286833 ;">Welcome to the calorie estimator live for healthy life!  </h3></strong>
+        </div>
+    </div>
+	<div class="super_container">
+<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+								<div class="logo"><a href="index.html"> <h3> Eat Healthy</h3></a></div>
+								<nav class="main_nav">
+									<ul class="d-flex flex-row align-items-start justify-content-start">
+										<li><a href="/"><p style="background-color:#;">Home</a></li>
+										<li><a href="/nutrition"><p style="background-color: #;">Calorie/day</a></li>
+										<li><a href="/live_detector"><p style="background-color: #;">AI Live Dish Analysis </a></li>
+										<li><a href="/image-detector"><p style="background-color: #;">AI Image Dish Analysis </a></li>
+										<li><a href="/cal_vol"><p style="background-color: #;">AI vol/calorie estimation</a></li>
+                                        <li><a href="/poid"><p style="background-color: #;">Ideal weight</a></li>
+
+										</ul>
+								</nav>
+
+								<!-- Hamburger -->
+
+								<div class="hamburger ml-auto">
+									<i class="fa fa-bars" aria-hidden="true"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+<div class="container">
+    <div class="container-fluid">
+        <div id="frame_container" class="row">
+            <div class="col-12">
+                <img src="/static/images/44.PNG"
+                     class="img-thumbnail img-fluid mx-auto d-block">
+            </div>
+        </div>
+        <div class="row mt-3 mb-5">
+            <div class="col-6 d-flex justify-content-end">
+                <button id="start" onclick="start()" class="btn btn-outline-success"><i class="fa fa-video-camera"
+                                                                                        aria-hidden="true"></i> Start
+                </button>
+            </div>
+            <div class="col-6 d-flex justify-content-start">
+                <button id="stop" onclick="stop()" class="btn btn-danger active"><i class="fa fa-stop"
+                                                                                    aria-hidden="true"></i> Stop
+                </button>
+            </div>
+        </div>
+        <hr>
+
+
+        <div class="row mb-5">
+            <p>I hope you all good health.</p>
+            <p class="d-flex mx-auto lead text-danger"><strong>stay healthy!</strong>.</p>
+            <p></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block custom_js %}
+<script>
+    function stop(){
+        $("img").attr("src", "/static/images/44.PNG");
+        $("#stop").attr("class","btn btn-danger active");
+
+        $("#start").attr("class","btn btn-outline-success");
+    }
+    function start(){
+        $("img").attr("src", "{{url_for('main.video_feed')}}");
+        $("#start").attr("class","btn btn-success active");
+
+        $("#stop").attr("class","btn btn-outline-danger");
+    }
+
+</script>
+
+{% endblock %}
+
+						<script src="/static/js/custom.js"></script>
+        <div class="home_slider_content_container">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="home_slider_content">
+											<div class="home_title">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	</body>
+<div class="footer">
+        <div class="py-4 bg-dark text-white-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>You can follow me here:</p>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="https://www.linkedin.com/in/galileo-parise-34311198/" class="footer-link">
+                                    <i class="fa fa-linkedin-square my-auto mx-2" aria-hidden="true"></i> Linkedin
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="footer-link">
+                                    <i class="fa fa-medium mx-2 my-auto" aria-hidden="true"></i>Medium
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="mailto:parise.galileo@gmail.com?subject=Mask%20detector" class="footer-link">
+                                    <i class="fa fa-envelope my-auto mx-2" aria-hidden="true"></i> Mail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
